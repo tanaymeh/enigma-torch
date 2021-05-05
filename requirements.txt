@@ -1,0 +1,11 @@
+numpy
+pandas
+matplotlib
+seaborn
+tqdm
+rich
+torch
+torchvision
+torchtext
+timm
+transformers
