@@ -10,3 +10,5 @@ torchtext
 timm
 transformers
 cv2
+dask
+albumentations
