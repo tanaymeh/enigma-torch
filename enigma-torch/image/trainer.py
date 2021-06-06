@@ -9,6 +9,9 @@ import torch.nn.functional as F
 
 from typing import Optional, List, Union
 
+from .internal._train import _trainRoutine
+from .internal._validate import _validRoutine
+from .internal._test import _testRoutine
 from ..helpers.utils import logToUser, isValidDevice
 
 class Trainer:
@@ -39,7 +42,7 @@ class Trainer:
         """
         
         # Sanity checks and flags
-        self.valid_flag = True if self.valid_dataloader else False
+        self.valid_flag = True if valid_dataloader else False
         
         assert isinstance(train_dataloader, torch.utils.data.DataLoader), \
             "Train Dataloader must be of type Torch DataLoader"
@@ -67,7 +70,7 @@ class Trainer:
     
     @device.setter
     def device(self, device):
-        warnings.warn("Changing device explicitly can lead to some apex being disabled.")
+        warnings.warn("Changing device explicitly can lead to APEX functionalities like Automatic Mixed Precision being disabled.")
         if isValidDevice(device):
             self.device = torch.device(device)
         else:
@@ -104,3 +107,5 @@ class Trainer:
         if self._cuda_status and self.apex:
             return True
         return False
+    
+    
