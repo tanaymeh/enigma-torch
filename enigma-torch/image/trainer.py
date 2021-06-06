@@ -107,5 +107,3 @@ class Trainer:
         if self._cuda_status and self.apex:
             return True
         return False
-    
-    
