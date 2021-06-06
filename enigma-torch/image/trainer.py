@@ -4,7 +4,6 @@ import warnings
 import numpy as np
 
 import torch
-from torch.cuda import CudaError
 import torch.nn as nn
 import torch.nn.functional as F
 
